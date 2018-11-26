@@ -23,11 +23,15 @@ GROUP BY last_name;
 
 SELECT last_name, COUNT(last_name) AS name_count FROM actor 
 GROUP BY last_name
-HAVING name_count >= 2
+HAVING COUNT(last_name) > 1;
 
-update  actor set first_name = 'HARPO" where last_name=''WILLIAMS' AND first_name='GROUCHO' ;
+UPDATE actor
+SET first_name = 'HARPO'
+ WHERE first_name = 'GROUCHO' AND last_name = 'WILLIAMS';
 
-UPDATE actor SET first_name = 'GROUCHO' WHERE first_name = 'HARPO' AND last_name = 'WILLIAMS';
+UPDATE actor
+SET first_name = 'GROUCHO'
+WHERE first_name = 'HARPO';
 
  CREATE TABLE address2
 	(  address_id smallint UNSIGNED NOT NULL AUTO_INCREMENT, address VARCHAR(50),
